@@ -1,0 +1,32 @@
+<div class="nav">
+    <div class="nav-left">
+        <ng-container *ngIf="isLoggedIn">
+            <a routerLink="/userhome" [ngClass]="{'active': isRouteActive('/userhome')}">Home</a>
+            <a routerLink="/quiz" [ngClass]="{'active': isRouteActive('/quiz')}">Quiz</a>
+        </ng-container>
+
+        <ng-container *ngIf="!isLoggedIn">
+            <a routerLink="/register" [ngClass]="{'active': isRouteActive('/register')}">Register</a>
+        </ng-container>
+
+        <a routerLink="/contact" [ngClass]="{'active': isRouteActive('/contact')}">Contact</a>
+
+        <ng-container *ngIf="isLoggedIn">
+            <a (click) = logout()>Logout</a>
+        </ng-container>
+
+        <ng-container *ngIf="!isLoggedIn">
+            <a routerLink="/login" [ngClass]="{'active': isRouteActive('/login')}">Login</a>
+        </ng-container>
+    </div>
+
+    <div class="nav-right">
+        <ng-container *ngIf="isLoggedIn">
+            <div class="user-info">
+                <p>Hi! {{ displayName }}</p>
+                <p>Email: {{ user }}</p>
+            </div>
+        </ng-container>
+    </div>
+</div>
+

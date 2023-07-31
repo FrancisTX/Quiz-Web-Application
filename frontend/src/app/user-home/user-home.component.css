@@ -1,0 +1,60 @@
+.nav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.nav a:hover {
+    background-color: #ddd;
+}
+
+.nav .active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* CSS for the quiz information section */
+.quiz-info {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.quiz-results-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.quiz-results-table th,
+.quiz-results-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.quiz-results-table th {
+    background-color: #f2f2f2;
+}
+
+.quiz-results-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.quiz-results-table tbody tr:hover {
+    background-color: #e2e2e2;
+}
+
+button{
+    border:none;
+    border-radius:5px;
+    padding:15px 30px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background-color:#ddd;
+}

@@ -1,0 +1,56 @@
+<body>
+<div class="container">
+    <h2>Question Management</h2>
+    <div class="table-wrapper">
+      <table class="question-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Category ID</th>
+            <th>Content</th>
+            <th>Status</th>
+            <th>Actions</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let question of questions">
+            <tr>
+              <td>{{ question.questionId }}</td>
+              <td>{{ question.categoryId }}</td>
+              <td>{{ question.content }}</td>
+              <td>{{ question.isActive ? 'active' : 'suspended' }}</td>
+              <td>
+                <ng-container *ngIf="question.isActive">
+                  <form (submit)="suspendQuestion(question.questionId)" >
+                    <button type="submit">Suspend</button>
+                  </form>
+                </ng-container>
+                <ng-container *ngIf="!question.isActive">
+                  <form (submit)="activateQuestion(question.questionId)">
+                    <button type="submit">Activate</button>
+                  </form>
+                </ng-container>
+              </td>
+              <td>
+                <form (submit)="editQuestion(question.questionId)">
+                    <button type="submit">Edit</button>
+                </form>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+    <div class="add-question-container">
+      <!-- <a class="add-question-button" (click)="openModal()">Add a new question</a> -->
+        <a class="add-question-button" href="/add-question">Add a new question</a>
+    </div>
+  
+    <div class="admin-home-container">
+      <a href="/adminhome" class="admin-home-button">Go to Admin Home</a>
+    </div>
+  </div>
+
+  <!-- <app-modal  *ngIf="showModal" (closeModal)="closeModal()"></app-modal> -->
+</body>

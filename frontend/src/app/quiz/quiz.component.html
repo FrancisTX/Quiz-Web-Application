@@ -1,0 +1,23 @@
+<app-nav-bar></app-nav-bar>
+<div *ngIf="showCategorySelection">
+    <a *ngFor="let category of categories" (click)="getQuestionsByCategoryId(category.categoryId)">
+      <p>{{ category.name }}</p>
+      <br>
+    </a>
+</div>
+
+<div *ngIf="!showCategorySelection">
+    <form (submit)="submitQuiz()">
+      <div *ngFor="let questionWithChoices of questionsWithChoices; let i = index">
+        <p>{{ questionWithChoices.question.content }}</p>
+        <div *ngFor="let choice of questionWithChoices.choices">
+          <div>
+            <input type="radio" [name]="questionWithChoices.question.questionId" [value]="choice.choiceId">
+            {{ choice.description }}
+          </div>
+        </div>
+      </div>
+      <!-- <input type="hidden" name="categoryId" [value]="categoryId"> -->
+      <button type="submit">Submit</button>
+    </form>
+  </div>

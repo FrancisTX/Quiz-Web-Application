@@ -1,0 +1,21 @@
+<!-- <app-nav-bar *ngIf="!isAdmin"></app-nav-bar> -->
+
+<div>
+  <h1>Quiz {{ quizId }} Final Result: {{ countCorrect >= 3 ? 'Pass' : 'Fail' }}</h1>
+  <p>Total Score: {{ countCorrect }}/{{ questions.length }}</p>
+  <!-- <p>Start Time: {{ quizResult.start_time | date:'medium' }}</p>
+  <p>End Time: {{ quizResult.end_time | date:'medium' }}</p> -->
+
+  <h2>Quiz Result</h2>
+  <ng-container *ngFor="let question of questions; let i = index">
+    <h2>Question {{ i + 1 }}</h2>
+    <p>{{ question.content }}</p>
+
+    <ng-container *ngFor="let choice of choices[i]">
+        <div [style.background-color]="choice.correct ? 'lightgreen' : (selected[i]?.choiceId === choice.choiceId ? 'lightcoral' : '')">
+            <input type="radio" disabled [checked]="selected[i]?.choiceId === choice.choiceId" [value]="choice.choiceId" />
+            {{ choice.description }}
+          </div>
+      </ng-container>
+  </ng-container>
+</div>

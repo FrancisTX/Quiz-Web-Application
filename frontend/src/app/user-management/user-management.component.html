@@ -1,0 +1,39 @@
+<body>
+<div class="container">
+    <h1>User Management</h1>
+  
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.active }}</td>
+        <td>
+          <ng-container *ngIf="user.active">
+            <form (submit)="suspendUser(user.id)">
+              <button type="submit">Suspend</button>
+            </form>
+          </ng-container>
+          <ng-container *ngIf="!user.active">
+            <form (submit)="activateUser(user.id)">
+              <button type="submit">Activate</button>
+            </form>
+          </ng-container>
+        </td>
+      </tr>
+    </table>
+  
+    <div class="admin-home-container">
+      <a href="/adminhome" class="admin-home-button">Go to Admin Home</a>
+    </div>
+  </div>
+</body>

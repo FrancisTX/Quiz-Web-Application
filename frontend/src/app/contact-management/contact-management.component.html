@@ -1,0 +1,31 @@
+<body>
+<div class="container">
+    <h2>Contact Us Management</h2>
+  
+    <table class="contact-table">
+      <thead>
+        <tr>
+          <th>Contact ID</th>
+          <th>Subject</th>
+          <th>Message</th>
+          <th>Email</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Iterate over the contacts and display the rows -->
+        <tr *ngFor="let contact of contacts">
+          <td>{{ contact.contactId }}</td>
+          <td>{{ contact.subject }}</td>
+          <td>{{ contact.message }}</td>
+          <td>{{ contact.email }}</td>
+          <td>{{ contact.time }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="admin-home-container">
+      <a routerLink="/adminhome" class="admin-home-button">Go to Admin Home</a>
+    </div>
+  </div>
+  <body></body>

@@ -1,0 +1,28 @@
+<app-nav-bar></app-nav-bar>
+<div class="quiz-info">
+    <!-- Display the user's quiz information here -->
+    <h2>Your Quiz History</h2>
+    <table class="quiz-results-table">
+        <thead>
+            <tr>
+                <th>Quiz ID</th>
+                <th>Category</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over the quiz results stored in the component -->
+            <ng-container *ngFor="let quizResult of quizResults; let i = index">
+                <tr>
+                    <td>{{ quizResult.quizResultId }}</td>
+                    <td>{{ categoryList[i] }}</td>
+                    <td>{{ quizResult.startTime }}</td>
+                    <td>{{ quizResult.endTime }}</td>
+                    <td><a [routerLink]="'/result/' + quizResult.quizResultId">Result</a></td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

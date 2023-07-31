@@ -1,0 +1,22 @@
+<body>
+<app-nav-bar></app-nav-bar>
+
+<div>
+  <h2>Contact Form</h2>
+  <form (ngSubmit)="submitForm()" #contactForm="ngForm">
+    <div>
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject" required [(ngModel)]="templateForm.subject">
+    </div>
+    <div>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required [(ngModel)]="templateForm.message"></textarea>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required [(ngModel)]="templateForm.email">
+    </div>
+    <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+  </form>
+</div>
+</body>

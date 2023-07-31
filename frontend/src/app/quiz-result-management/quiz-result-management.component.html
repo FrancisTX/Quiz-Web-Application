@@ -1,0 +1,45 @@
+<body>
+<div class="container">
+    <h1>Quiz Result Management</h1>
+    <form (submit)="applyFilters()" class="filter-form">
+      <div class="form-group">
+        <label for="categoryId">Category:</label>
+        <select name="categoryId" id="categoryId" [(ngModel)]="filterCategory">
+          <option value="all">All Categories</option>
+          <option *ngFor="let category of allCategories" value="{{ category.name }}">{{ category.name }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="userId">User:</label>
+        <select name="userId" id="userId" [(ngModel)]="filterUser">
+          <option value="all">All Users</option>
+          <option *ngFor="let user of users" value="{{ user.id }}">{{ user.firstName }} {{ user.lastName }}</option>
+        </select>
+      </div>
+  
+      <button type="submit">Filter</button>
+    </form>
+    <table>
+      <tr>
+        <th>Quiz ID</th>
+        <th>User Name</th>
+        <th>Category</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Result</th>
+      </tr>
+      <tr *ngFor="let quizResult of templeQuizResults; let i = index">
+        <td>{{ quizResult.quizResultId }}</td>
+        <td>{{ quizResult.firstName }} {{quizResult.lastName}}</td>
+        <td>{{ quizResult.categoryName }}</td>
+        <td>{{ quizResult.startTime }}</td>
+        <td>{{ quizResult.endTime }}</td>
+        <td><a href="/result/{{ quizResult.quizResultId }}">Result</a></td>
+      </tr>
+    </table>
+    <div class="admin-home-container">
+      <a href="/adminhome" class="admin-home-button">Go to Admin Home</a>
+    </div>
+  </div>
+</body>
